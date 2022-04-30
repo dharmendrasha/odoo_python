@@ -44,7 +44,7 @@ class OdooApi:
             }
         )
 
-    def search(self, model: str, condition: List[list[list]] = [[]], limit: int = -1, offset: int = -1):
+    def search(self, model: str, condition: List[List[list]] = [[]], limit: int = -1, offset: int = -1):
         doc = {}
         if limit > 0:
             doc.update({'limit': limit})
@@ -62,12 +62,12 @@ class OdooApi:
             doc
         )
 
-    def records(self, model: str, fields: List[str] = [], condition: List[list[list]] = [[]], limit: int = -1,
+    def records(self, model: str, fields: List[str] = [], condition: List[List[list]] = [[]], limit: int = -1,
                 offset: int = -1):
         ids = self.search(model, condition, limit, offset)
         return self.read.execute_kw(self.db, self.uid, self.password, model, 'read', [ids], {'fields': fields})
 
-    def count_records(self, model: str, condition: List[list[list]] = [[]]):
+    def count_records(self, model: str, condition: List[List[list]] = [[]]):
         return self.read.execute_kw(
             self.db,
             self.uid,
@@ -77,7 +77,7 @@ class OdooApi:
             condition
         )
 
-    def fields_get(self, model: str, condition: List[list[list]] = [[]], attributes: List[str] = []):
+    def fields_get(self, model: str, condition: List[List[list]] = [[]], attributes: List[str] = []):
         return self.read.execute_kw(
             self.db,
             self.uid,
@@ -88,7 +88,7 @@ class OdooApi:
             {'attributes': attributes}
         )
 
-    def search_read(self, model: str, condition: List[list[list]] = [[]], fields: List[str] = [], limit: int = -1,
+    def search_read(self, model: str, condition: List[List[list]] = [[]], fields: List[str] = [], limit: int = -1,
                     offset: int = -1):
         filter = {'fields': fields}
 
@@ -114,5 +114,5 @@ class OdooApi:
     def update(self, model: str, id: List[int], value: dict):
         return self.read.execute_kw(self.db, self.uid, self.password, model, 'write', [id, value])
 
-    def delete(self, model: str, condtion: List[list[list]] = [[]]):
+    def delete(self, model: str, condtion: List[List[list]] = [[]]):
         return self.read.execute_kw(self.db, self.uid, self.password, model, 'unlink', condtion)
