@@ -1,4 +1,4 @@
-#!./venv/bin/python
+#!./venv/bin/python3.8
 from odoo import OdooApi
 from rich import print
 
