@@ -2,8 +2,7 @@ import xmlrpc.client
 
 from typing import List
 
-
-class OdooApi:
+class api:
     def __init__(self, host: str, database: str, user: str, password: str):
         self.url = host
         self.db = database
