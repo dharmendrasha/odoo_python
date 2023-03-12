@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name='odoo_helper',
-    version='0.1.0',
+    version='0.1.1',
     packages=find_packages(),
     url='https://github.com/dharmendrasha/odoo_python',
     license='GNU',
@@ -15,6 +15,7 @@ setup(
     description='simple helper library for connecting database with odoo',
     keywords="odoo sdk api database package",
     long_description=read('README.md'),
+    long_description_content_type='text/markdown',
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Database",
